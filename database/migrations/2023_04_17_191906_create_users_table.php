@@ -18,12 +18,14 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->rememberToken();
+            //$table->rememberToken();
             $table->string('address')->nullable();
             $table->date('birthday')->nullable();
             $table->boolean('enabled')->default(0);
-            $table->string('phone_number');
+            $table->string('phone_number')->default('');
+            $table->unsignedBigInteger('cart_id')->nullable();
             $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
+            $table->unsignedBigInteger('image_id')->nullable();
             $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
             $table->timestamps();
         });

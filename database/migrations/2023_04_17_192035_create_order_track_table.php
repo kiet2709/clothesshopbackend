@@ -16,7 +16,6 @@ class CreateOrderTrackTable extends Migration
         Schema::create('order_track', function (Blueprint $table) {
             $table->id();
             $table->string('status');
-            $table->timestamps();
         });
     }
 

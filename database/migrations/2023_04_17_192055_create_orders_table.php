@@ -18,7 +18,9 @@ class CreateOrdersTable extends Migration
             $table->integer('deliver_cost');
             $table->string('deliver_method');
             $table->date('order_date');
+            $table->unsignedBigInteger('order_track_id')->nullable();
             $table->foreign('order_track_id')->references('id')->on('order_track')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
